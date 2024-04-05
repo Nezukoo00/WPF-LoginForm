@@ -10,6 +10,8 @@ namespace WPF_LoginForm.Models
     {
         public string Username { get; set; }
         public string DisplayName { get; set; }
-        public byte[] ProfilePicture { get; set; }
+        public string TextFilePath { get; set; }
+        public string PhotoFilePath { get; set; }
+        public string TextFileContent { get; set; }
     }
 }

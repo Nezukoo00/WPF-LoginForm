@@ -43,8 +43,17 @@ namespace WPF_LoginForm.ViewModels
             if (user != null)
             {
                 CurrentUserAccount.Username = user.Username;
-                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName} ;)";
-                CurrentUserAccount.ProfilePicture = null;               
+                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName} ";
+                CurrentUserAccount.TextFilePath = user.TextFilePath;
+                CurrentUserAccount.PhotoFilePath = user.PhotoFilePath;
+                if (!string.IsNullOrEmpty(user.TextFilePath))
+                {
+                    CurrentUserAccount.TextFileContent = System.IO.File.ReadAllText(user.TextFilePath);
+                }
+                else
+                {
+                    CurrentUserAccount.TextFileContent = "No text file available";
+                }
             }
             else
             {
